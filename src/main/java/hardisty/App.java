@@ -10,6 +10,7 @@ public class App
     {
         System.out.println( "Hello World!" );
         println("" + EulerOneImperative());
+        println("" + EulerTwoImperative());
     }
 /**
     Multiples of 3 and 5
@@ -46,23 +47,33 @@ public class App
         long sum = 0;
 
         int max = 4000000;
-        int newFib = 0;
-        int lastFib = 1;
-        while (newFib < max) {
-            newFib = lastFib + newFib;
-            if (newFib % 2 == 0) {
-                sum += newFib;
+        int firstArg = 0;
+        int secondArg = 1;
+        int fib;
+        while (secondArg < max) {
+            fib = firstArg + secondArg;
+            if (fib % 2 == 0) {
+                sum += fib;
             }
-            print(lastFib);
+
+
+            print(firstArg);
             print(", ");
-            print(newFib);
-            lastFib = newFib;
+            print(secondArg);
+            print(", ");
+
             println(sum);
+            firstArg = secondArg;
+            secondArg = fib;
         }
 
         return sum;
     }
+    /**
+    The prime factors of 13195 are 5, 7, 13 and 29.
 
+    What is the largest prime factor of the number 600851475143 ?
+    */
     public static int fib(int n) {
         int sum = 0;
         int firstTerm = 0;
