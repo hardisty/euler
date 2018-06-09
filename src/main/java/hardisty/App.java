@@ -55,14 +55,8 @@ public class App
             if (fib % 2 == 0) {
                 sum += fib;
             }
+            println(firstArg + ", " + secondArg + ", " + sum);
 
-
-            print(firstArg);
-            print(", ");
-            print(secondArg);
-            print(", ");
-
-            println(sum);
             firstArg = secondArg;
             secondArg = fib;
         }
