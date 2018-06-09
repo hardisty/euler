@@ -1,5 +1,8 @@
 package hardisty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Hello world!
  *
@@ -9,8 +12,9 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        println("" + EulerOneImperative());
-        println("" + EulerTwoImperative());
+        println("one: " + EulerOneImperative());
+        println("two: " + EulerTwoImperative());
+        println("three: " + EulerThreeImperative());
     }
 /**
     Multiples of 3 and 5
@@ -55,7 +59,7 @@ public class App
             if (fib % 2 == 0) {
                 sum += fib;
             }
-            println(firstArg + ", " + secondArg + ", " + sum);
+            //println(firstArg + ", " + secondArg + ", " + sum);
 
             firstArg = secondArg;
             secondArg = fib;
@@ -68,14 +72,81 @@ public class App
 
     What is the largest prime factor of the number 600851475143 ?
     */
-    public static int fib(int n) {
-        int sum = 0;
-        int firstTerm = 0;
-        int secondTerm = 1;
-        for (int i = 0; i < n; i++) {
-            sum = firstTerm + secondTerm;
+
+    //n
+    public static Long EulerThreeImperative() {
+
+        long target = 600_851_475_143L;
+        long inputLong = 1_475_143L;
+        List<Long> primes = new ArrayList<>();
+
+        primes.add(2L);
+
+        Long lastPrime = 2L;
+        for (long i = 0L; lastPrime < inputLong; i++) {
+            lastPrime = nextPrime(primes);
+            primes.add(lastPrime);
+
         }
-        return sum;
+
+        for (int i = primes.size() -1; i > 0; i--) {
+            long prime = primes.get(i);
+            if (target % prime == 0) {
+                return prime;
+            }
+        }
+        return 0L;
+    }
+
+    public static PartlyFactorized factorizeStep(Long input) {
+
+    }
+
+    public static Long primeFactorization(Long target) {
+
+        List<Long> primes = new ArrayList<>();
+
+        primes.add(2L);
+
+        Long lastPrime = 2L;
+        for (long i = 0L; lastPrime < inputLong; i++) {
+            lastPrime = nextPrime(primes);
+            primes.add(lastPrime);
+
+        }
+
+        for (int i = primes.size() -1; i > 0; i--) {
+            long prime = primes.get(i);
+            if (target % prime == 0) {
+                return prime;
+            }
+        }
+        return 0L;
+    }
+
+    public static long nextPrime(List<Long> primes) {
+
+        long lastPrime = primes.get(primes.size()-1);
+        long candidate = lastPrime + 1;
+        while (isDivisible(primes, candidate)) {
+            candidate = candidate + 1;
+        }
+        return candidate;
+    }
+
+    public static List<Long> primeFactors(Long input) {
+        List<Long> factors = new ArrayList<>();
+
+        return factors;
+    }
+
+    public static boolean isDivisible(List<Long> divisors, long dividend) {
+        for (long  divisor : divisors) {
+            if (dividend % divisor == 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean isMultiple(int n, int divisor) {
@@ -97,5 +168,10 @@ public class App
     }
     public static void println(long s) {
         System.out.println(s);
+    }
+
+    class PartlyFactorized  {
+            Long primePart;
+            Long rest;
     }
 }
