@@ -73,25 +73,36 @@ public class App
     What is the largest prime factor of the number 600851475143 ?
     */
 
-    //n
+    //6857 prime
+    //600851475143 target
+    //87625999 non-prime factor
+    //1471 prime
+    //59569 non-prime factor
+    //839 prime
+    //71 prime
     public static Long EulerThreeImperative() {
 
         long target = 600_851_475_143L;
-        long inputLong = 1_475_143L;
+        target =  6850;
+        target = 137;
+        long maxPrimeTarget = 11L;
+        //inputLong = target;
         List<Long> primes = new ArrayList<>();
 
         primes.add(2L);
 
         Long lastPrime = 2L;
-        for (long i = 0L; lastPrime < inputLong; i++) {
+        for (long i = 0L; lastPrime < maxPrimeTarget; i++) {
             lastPrime = nextPrime(primes);
             primes.add(lastPrime);
 
         }
 
-        for (int i = primes.size() -1; i > 0; i--) {
+        for (int i = primes.size() -1; i >= 0; i--) {
             long prime = primes.get(i);
             if (target % prime == 0) {
+                println(prime);
+                println(target / prime);
                 return prime;
             }
         }
@@ -99,7 +110,7 @@ public class App
     }
 
     public static PartlyFactorized factorizeStep(Long input) {
-
+        return null;
     }
 
     public static Long primeFactorization(Long target) {
@@ -109,7 +120,7 @@ public class App
         primes.add(2L);
 
         Long lastPrime = 2L;
-        for (long i = 0L; lastPrime < inputLong; i++) {
+        for (long i = 0L; lastPrime < target; i++) {
             lastPrime = nextPrime(primes);
             primes.add(lastPrime);
 
