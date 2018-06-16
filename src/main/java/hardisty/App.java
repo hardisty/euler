@@ -136,7 +136,30 @@ public class App {
         return largest;
     }
 
+    /**
+     * Smallest multiple
+     * Problem 5
+     * 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+     *
+     * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+     */
     
+
+    /**
+     * Prime pair sets
+     * Problem 60
+     *
+     * The primes 3, 7, 109, and 673, are quite remarkable.
+     * By taking any two primes and concatenating them in any order
+     * the result will always be prime.
+     * For example, taking 7 and 109, both 7109 and 1097 are prime.
+     * The sum of these four primes, 792, represents the lowest sum for a set of four primes with this property.
+     *
+     * Find the lowest sum for a set of five primes for which any two primes concatenate to produce another prime.
+     * @param num
+     * @return
+     */
+
 
     public static boolean isPalindrome(long num) {
         String numString = String.valueOf(num);
