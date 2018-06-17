@@ -145,7 +145,29 @@ public class App {
      * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
      */
     public static long EulerFiveImperative() {
+        long num = 0;
+        long until = 20;
+        long candidate = until + 1;
+        while (num == 0) {
 
+            if (allMultiples(candidate, until)) {
+                num = candidate;
+            } else {
+                candidate++;
+            }
+        }
+
+
+        return num;
+    }
+
+    public static boolean allMultiples(long num, long until) {
+        for (long i = 1; i <= until; i++) {
+            if (num % i != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
