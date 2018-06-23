@@ -14,6 +14,9 @@ public class App {
         println("three: " + EulerThreeImperative());
         println("four: " + EulerFourImperative());
         println("five: " + EulerFiveImperative());
+        println("six: " + EulerSix());
+
+        println("sixty: " + EulerFiveImperative());
     }
 
     /**
@@ -161,7 +164,34 @@ public class App {
         return num;
     }
 
+    /**
+     * Sum square difference
+     * Problem 6
+     * The sum of the squares of the first ten natural numbers is,
+     * <p>
+     * 1^2 + 2^2 + ... + 10^2 = 385
+     * The square of the sum of the first ten natural numbers is,
+     * <p>
+     * (1 + 2 + ... + 10)^2 = 552 = 3025
+     * Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+     * <p>
+     * Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+     */
+
+    public static long EulerSix() {
+        long sum = 0;
+        long squares = 0;
+        for (long i = 1; i <= 100; i++) {
+            sum += i;
+            squares += (i * i);
+        }
+        sum = sum * sum;
+        return sum - squares;
+
+    }
+
     public static boolean allMultiples(long num, long until) {
+
         for (long i = 1; i <= until; i++) {
             if (num % i != 0) {
                 return false;
@@ -182,10 +212,30 @@ public class App {
      * <p>
      * Find the lowest sum for a set of five primes for which any two primes concatenate to produce another prime.
      *
-     * @param num
      * @return
      */
 
+    public static long EulerSixtyImperative() {
+        List<Long> allPrimes;
+        List<Long> candidateSet;
+
+        //procedure:
+        //1. add another prime to set of all primes
+        //2. permute the set of all primes, considering each subset of 5 with new prime added. consider memoizing on sums
+        //3. if winner is found, must be lowest sum, so stop
+        //4. if no winner, go to 1
+
+
+        return 0L;
+    }
+
+    public static long sum(List<Long> list) {
+        long sum = 0;
+        for (long l : list) {
+            sum += l;
+        }
+        return sum;
+    }
 
     public static boolean isPalindrome(long num) {
         String numString = String.valueOf(num);
