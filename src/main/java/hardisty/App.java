@@ -9,13 +9,13 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        println("one: " + EulerOneImperative());
-        println("two: " + EulerTwoImperative());
-        println("three: " + EulerThreeImperative());
-        println("four: " + EulerFourImperative());
-        println("five: " + EulerFiveImperative());
+        //println("one: " + EulerOneImperative());
+        //println("two: " + EulerTwoImperative());
+        //println("three: " + EulerThreeImperative());
+        //println("four: " + EulerFourImperative());
+        //println("five: " + EulerFiveImperative());
         println("six: " + EulerSix());
-
+        println("seven: " + EulerSeven());
         println("sixty: " + EulerFiveImperative());
     }
 
@@ -189,6 +189,25 @@ public class App {
         return sum - squares;
 
     }
+    /**
+     *     10,001st prime
+     *     Problem 7
+     *     By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+     *
+     *     What is the 10,001st prime number?
+     */
+
+    public static long EulerSeven() {
+        List<Long> primes = new ArrayList<>();
+        for (long i = 1; i <= 10001; i++) {
+            long next = nextPrime(primes);
+            primes.add(next);
+            println("i " + i + ", prime = " + next);
+
+        }
+        return primes.get(primes.size()-1);
+    }
+
 
     public static boolean allMultiples(long num, long until) {
 
@@ -277,8 +296,12 @@ public class App {
     }
 
     public static long nextPrime(List<Long> primes) {
-
-        long lastPrime = primes.get(primes.size() - 1);
+        long lastPrime = 0;
+        if (primes.size() > 0 ) {
+            lastPrime = primes.get(primes.size() - 1);
+        } else {
+            return 2L;
+        }
         long candidate = lastPrime + 1;
         while (isDivisible(primes, candidate)) {
             candidate = candidate + 1;
